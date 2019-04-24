@@ -17,6 +17,7 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
     <script>
+
         function changeCheckCode() {
             var img = document.getElementById("checkcodeimg");
             var codespan = document.getElementById("checkcode_span");
@@ -76,6 +77,18 @@
 				    span.innerHTML="<font color='red'>两次密码不一致</font>";
              	}
              }
+
+             $(function () {
+                $("#inputAccount").blur(function () {
+                    var username=$(this).val();
+                    var url="${pageContext.request.contextPath}/userExistsServlet";
+                    var args={"username":username,"time":new Date()};
+                    $.post(url, args,function (data) {
+                        $("#username_span").html(data);
+                    })
+
+                })
+             })
     </script>
 </head>
 <body>
