@@ -1,10 +1,13 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="com.order.domain.User" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>徐健波的个人中心</title>
+    <title>${nickname}的个人中心</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <script src="jquery-3.2.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
@@ -22,7 +25,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">欢迎光临，徐健波</a>
+            <a class="navbar-brand" href="#">欢迎光临，${nickname}</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -40,26 +43,26 @@
 </nav>
 <div class="container">
     <div class="row">
-        <div class="panel panel-default panel-primary">
+        <div class="panel panel-default panel-info">
             <div class="panel-heading">账号</div>
             <div class="panel-body" id="account">
-                15267922045
+                ${id}
             </div>
         </div>
     </div>
     <div class="row">
-        <div class="panel panel-default panel-primary">
+        <div class="panel panel-default panel-info">
             <div class="panel-heading">昵称</div>
             <div class="panel-body" id="nickname">
-                徐健波
+                ${nickname}
             </div>
         </div>
     </div>
     <div class="row">
-        <div class="panel panel-default panel-primary">
+        <div class="panel panel-default panel-info">
             <div class="panel-heading">余额</div>
             <div class="panel-body">
-                ￥<span id="balance">50</span>
+                ￥<span id="balance">${balance}</span>
             </div>
         </div>
     </div>
