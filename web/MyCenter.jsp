@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>${nickname}的个人中心</title>
+    <title>${user.nickname}的个人中心</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <script src="jquery-3.2.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
@@ -25,7 +25,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">欢迎光临，${nickname}</a>
+            <a class="navbar-brand" href="#">欢迎光临，${user.nickname}</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -36,7 +36,7 @@
                 <li><a href="#">修改登录密码</a></li>
                 <li><a href="#">修改支付密码</a></li>
                 <li><a href="#">修改个人资料</a></li>
-                <li><a href="index.jsp">返回首页</a></li>
+                <li><a href="${pageContext.request.contextPath}/showGoodsServlet">返回首页</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
@@ -46,7 +46,7 @@
         <div class="panel panel-default panel-info">
             <div class="panel-heading">账号</div>
             <div class="panel-body" id="account">
-                ${id}
+                ${user.id}
             </div>
         </div>
     </div>
@@ -54,7 +54,7 @@
         <div class="panel panel-default panel-info">
             <div class="panel-heading">昵称</div>
             <div class="panel-body" id="nickname">
-                ${nickname}
+                ${user.nickname}
             </div>
         </div>
     </div>
@@ -62,7 +62,7 @@
         <div class="panel panel-default panel-info">
             <div class="panel-heading">余额</div>
             <div class="panel-body">
-                ￥<span id="balance">${balance}</span>
+                ￥<span id="balance">${user.balance}</span>
             </div>
         </div>
     </div>

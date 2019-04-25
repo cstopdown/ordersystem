@@ -1,6 +1,8 @@
 package com.order.service;
 
+import com.order.dao.UserDao;
 import com.order.domain.User;
+import com.order.impl.UserDaoImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,9 +19,9 @@ public class UserInfoServlet extends HttpServlet {
         response.setContentType("text/html;charset=utf-8");
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");
-        request.setAttribute("id", user.getId());
-        request.setAttribute("nickname", user.getNickname());
-        request.setAttribute("balance", user.getBalance());
+        UserDao dao = new UserDaoImpl();
+        User login = dao.login(user);
+        request.setAttribute("user", login);
         request.getRequestDispatcher("/MyCenter.jsp").forward(request, response);
     }
 
