@@ -3,7 +3,7 @@ package com.order.impl;
 import com.order.dao.UserDao;
 import com.order.domain.User;
 import com.order.util.JdbcUtil;
-import org.junit.Test;
+
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -43,8 +43,9 @@ public class UserDaoImpl implements UserDao {
         try {
             String sql="select * from  user where id=? ";
             JdbcTemplate template=new JdbcTemplate(JdbcUtil.getDataSource());
-            User user = template.queryForObject(sql, new BeanPropertyRowMapper<User>(User.class), id);
-            return true;
+            User user=template.queryForObject(sql, new BeanPropertyRowMapper<User>(User.class), id);
+            return user!=null;
+
 
 
         } catch (DataAccessException e) {
@@ -52,17 +53,22 @@ public class UserDaoImpl implements UserDao {
         }
     }
 
-    @Test
-    public void testexistsUser() {
-        try {
-            String id="1526792204";
-            String sql="select * from  user where id=? ";
-            JdbcTemplate template=new JdbcTemplate(JdbcUtil.getDataSource());
-            User user = template.queryForObject(sql, new BeanPropertyRowMapper<User>(User.class), id);
-            System.out.println("存在");
-        } catch (DataAccessException e) {
-            System.out.println("不存在");
-        }
+    @Override
+    public int pay(String nickname) {
+        String sql="select * from user where nickname=?";
+        JdbcTemplate template=new JdbcTemplate(JdbcUtil.getDataSource());
+        User user=template.queryForObject(sql, new BeanPropertyRowMapper<User>(User.class), nickname);
+        return  user.getBalance();
     }
 
+    @Override
+    public boolean updateAccount(int balance,String id) {
+        String sql="update user set balance=? where id=?";
+        JdbcTemplate template=new JdbcTemplate(JdbcUtil.getDataSource());
+        int i=template.update(sql,balance,id);
+        return i==0;
+    }
+
+
 }
+

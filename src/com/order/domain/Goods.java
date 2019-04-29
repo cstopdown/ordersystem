@@ -4,7 +4,7 @@ public class Goods {
     private int id;
     private String name;
     private String description;
-    private String price;
+    private int price;
     private int state;
     private String kind;
 
@@ -32,11 +32,11 @@ public class Goods {
         this.description = description;
     }
 
-    public String getPrice() {
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 

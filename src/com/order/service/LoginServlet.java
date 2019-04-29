@@ -4,6 +4,7 @@ import com.order.domain.User;
 import com.order.impl.UserDaoImpl;
 import org.apache.commons.beanutils.BeanUtils;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
@@ -15,6 +16,7 @@ import java.util.Map;
 public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");
+        response.setContentType("text/html;charset=utf-8");
         Map<String, String[]> map = request.getParameterMap();
         User user=new User();
         try {
@@ -30,6 +32,8 @@ public class LoginServlet extends HttpServlet {
             request.setAttribute("fail", "用户名或密码输入错误");
             request.getRequestDispatcher("login.jsp").forward(request, response);
         }else{
+//            ServletContext servletContext=getServletContext();
+//            servletContext.setAttribute("user",loginuser);
             HttpSession session = request.getSession();
             session.setAttribute("user", loginuser);
             response.sendRedirect("/ordersystem/showGoodsServlet");

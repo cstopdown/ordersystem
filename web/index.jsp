@@ -12,6 +12,14 @@
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <script src="jquery-3.2.1.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript"></script>
+    <script>
+        function bling(){
+            alert("添加购物车成功");
+
+
+        }
+    </script>
 
 
 
@@ -35,12 +43,13 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
+          <ul class="nav navbar-nav navbar-right">
+              <li><a href="showGoodsServlet">首页</a></li>
+              <li><a href="OrderCar.jsp">购物车</a></li>
+              <li><a href="historyOrder.jsp">历史订单</a></li>
+              <li><a href="${pageContext.request.contextPath}/userInfoServlet">个人中心</a></li>
+          </ul>
 
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">购物车</a></li>
-        <li><a href="#">历史订单</a></li>
-        <li><a href="${pageContext.request.contextPath}/userInfoServlet">个人中心</a></li>
-      </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
@@ -83,15 +92,21 @@
               <tr>
                   <c:if test="${kind=='milktea'}">
                       <td><img src="${pageContext.request.contextPath}/images/bubbletea.jpg" width="70px" height="80px">${i.name}</td>
+                      <td>${i.price}</td>
+                      <td><a href="#">购买</a><br><a href="ShowOrderCarServlet?kind=milktea&&name=${i.name}&&price=${i.price}" onclick="bling()">加入购物车</a></td>
                   </c:if>
+
                   <c:if test="${kind=='icecream'}">
                       <td><img src="${pageContext.request.contextPath}/images/icecream.jfif" width="70px" height="80px">${i.name}</td>
+                      <td>${i.price}</td>
+                      <td><a href="#">购买</a><br><a href="ShowOrderCarServlet?kind=icecream&&name=${i.name}&&price=${i.price}" onclick="bling()">加入购物车</a></td>
                   </c:if>
+
                   <c:if test="${kind=='fruitdrink'}">
                       <td><img src="${pageContext.request.contextPath}/images/lemontea.jpg" width="70px" height="80px">${i.name}</td>
+                      <td>${i.price}</td>
+                      <td><a href="#">购买</a><br><a href="ShowOrderCarServlet?kind=fruitdrink&&name=${i.name}&&price=${i.price}" onclick="bling()">加入购物车</a></td>
                   </c:if>
-                  <td>${i.price}</td>
-                  <td><a href="#">购买</a><br><a href="#">加入购物车</a></td>
               </tr>
           </c:forEach>
         </table>
