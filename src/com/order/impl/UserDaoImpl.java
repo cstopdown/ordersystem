@@ -4,6 +4,7 @@ import com.order.dao.UserDao;
 import com.order.domain.User;
 import com.order.util.JdbcUtil;
 
+import org.junit.Test;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -67,6 +68,28 @@ public class UserDaoImpl implements UserDao {
         JdbcTemplate template=new JdbcTemplate(JdbcUtil.getDataSource());
         int i=template.update(sql,balance,id);
         return i==0;
+    }
+
+    @Override
+    public boolean checkPayPassword(String uid,String paypwd) {
+        String sql = "select * from user where id = ? ";
+        JdbcTemplate template = new JdbcTemplate(JdbcUtil.getDataSource());
+        User user = template.queryForObject(sql, new BeanPropertyRowMapper<User>(User.class), uid);
+        String paypassword = user.getPaypassword();
+        if(paypwd.equals(paypassword)){
+            return true;
+        }else {
+            return false;
+        }
+
+    }
+
+    @Override
+    public User getUserById(String uid) {
+        String sql = "select * from user where id = ?";
+        JdbcTemplate template = new JdbcTemplate(JdbcUtil.getDataSource());
+        User user = template.queryForObject(sql, new BeanPropertyRowMapper<User>(User.class), uid);
+        return user;
     }
 
 

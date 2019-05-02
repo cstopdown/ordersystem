@@ -93,19 +93,19 @@
                   <c:if test="${kind=='milktea'}">
                       <td><img src="${pageContext.request.contextPath}/images/bubbletea.jpg" width="70px" height="80px">${i.name}</td>
                       <td>${i.price}</td>
-                      <td><a href="#">购买</a><br><a href="ShowOrderCarServlet?kind=milktea&&name=${i.name}&&price=${i.price}" onclick="bling()">加入购物车</a></td>
+                      <td><a href="buyone.jsp?gid=${i.id}">购买</a><br><a href="ShowOrderCarServlet?kind=milktea&&name=${i.name}&&price=${i.price}" onclick="bling()">加入购物车</a></td>
                   </c:if>
 
                   <c:if test="${kind=='icecream'}">
                       <td><img src="${pageContext.request.contextPath}/images/icecream.jfif" width="70px" height="80px">${i.name}</td>
                       <td>${i.price}</td>
-                      <td><a href="#">购买</a><br><a href="ShowOrderCarServlet?kind=icecream&&name=${i.name}&&price=${i.price}" onclick="bling()">加入购物车</a></td>
+                      <td><a href="buyone.jsp?gid=${i.id}">购买</a><br><a href="ShowOrderCarServlet?kind=icecream&&name=${i.name}&&price=${i.price}" onclick="bling()">加入购物车</a></td>
                   </c:if>
 
                   <c:if test="${kind=='fruitdrink'}">
                       <td><img src="${pageContext.request.contextPath}/images/lemontea.jpg" width="70px" height="80px">${i.name}</td>
                       <td>${i.price}</td>
-                      <td><a href="#">购买</a><br><a href="ShowOrderCarServlet?kind=fruitdrink&&name=${i.name}&&price=${i.price}" onclick="bling()">加入购物车</a></td>
+                      <td><a href="buyone.jsp?gid=${i.id}">购买</a><br><a href="ShowOrderCarServlet?kind=fruitdrink&&name=${i.name}&&price=${i.price}" onclick="bling()">加入购物车</a></td>
                   </c:if>
               </tr>
           </c:forEach>

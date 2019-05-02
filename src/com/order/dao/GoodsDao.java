@@ -6,4 +6,8 @@ import java.util.List;
 
 public interface GoodsDao {
     public List<Goods> showAllByKind(String kind, int state);
+
+    Goods queryById(String id);
+
+
 }
