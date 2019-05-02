@@ -60,13 +60,19 @@
             User user = (User) request.getSession().getAttribute("user");
             HistoryOrderDao historyOrderDao=new HistoryOrderDaoImpl();
             List<HistoryOrder> list=historyOrderDao.showAll(user.getId());
-            for (HistoryOrder historyOrder:list ) {
-                 int id=historyOrder.getH_id();
+//            for (HistoryOrder historyOrder:list ) {
+//                 int id=historyOrder.getH_id();
+//                 String date= historyOrder.getH_date();
+//                 int sum=historyOrder.getH_sum();
+//                 int state=historyOrder.getH_state();
+//                 String desc=historyOrder.getH_desc();
+            for (int i = list.size()-1; i >=0 ; i--) {
+                HistoryOrder historyOrder=list.get(i);
+                int id=historyOrder.getH_id();
                  String date= historyOrder.getH_date();
                  int sum=historyOrder.getH_sum();
                  int state=historyOrder.getH_state();
                  String desc=historyOrder.getH_desc();
-
         %>
         <tr>
             <td><%=id%></td>

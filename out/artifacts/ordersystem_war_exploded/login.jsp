@@ -6,11 +6,14 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>BOBO点餐系统</title>
+    <title>**点单系统</title>
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <script src="jquery-3.2.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+
+
+
 </head>
 <body>
 <%
@@ -20,7 +23,7 @@
     }
 %>
 
-<nav class="navbar navbar-default navbar-inverse">
+<nav class="navbar navbar-default">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -31,7 +34,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">BOBO点餐系统</a>
+            <a class="navbar-brand" href="#">**点单系统</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->

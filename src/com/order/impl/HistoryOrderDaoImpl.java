@@ -6,6 +6,7 @@ import com.order.util.JdbcUtil;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -27,7 +28,7 @@ public class HistoryOrderDaoImpl  implements HistoryOrderDao {
         JdbcTemplate template=new JdbcTemplate(JdbcUtil.getDataSource());
         String sql="select * from histotyorder where owner ='"+owner+"'";
         List<HistoryOrder> list=template.query(sql,new BeanPropertyRowMapper<HistoryOrder>(HistoryOrder.class));
-        return  list;
+        return list;
     }
 
 
