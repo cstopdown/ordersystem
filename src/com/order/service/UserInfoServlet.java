@@ -22,6 +22,7 @@ public class UserInfoServlet extends HttpServlet {
         UserDao dao = new UserDaoImpl();
         User login = dao.login(user);
         request.setAttribute("user", login);
+        session.setAttribute("user", login);
         request.getRequestDispatcher("/MyCenter.jsp").forward(request, response);
     }
 

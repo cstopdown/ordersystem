@@ -82,14 +82,17 @@
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
-<div class="col-xs-6">
-    <div class="input-group">
-        <input type="password" class="form-control" placeholder="请输入支付密码" id="paypwd">
-        <span class="input-group-btn">
+<div class="container" style="margin-top: 100px">
+    <div class="row">
+        <div class="col-xs-offset-3 col-xs-6">
+            <div class="input-group">
+                <input type="password" class="form-control" placeholder="请输入支付密码" id="paypwd">
+                <span class="input-group-btn">
         <button class="btn btn-default" type="button" onclick="pay()">确认</button>
       </span>
-    </div><!-- /input-group -->
-</div><!-- /.col-lg-6 -->
-</div><!-- /.row -->
+            </div><!-- /input-group -->
+        </div><!-- /.col-lg-6 -->
+    </div>
+</div>
 </body>
 </html>

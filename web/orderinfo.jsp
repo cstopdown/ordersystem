@@ -24,60 +24,64 @@
     </script>
 </head>
 <body>
-     <h3>订单详情 <span class="label label-default">New</span></h3>
-    <form action="historyOrder.jsp" method="post">
-    <table class="table">
-      <tr>
-          <td>商品名称</td>
-          <td align="right">商品数量</td>
-      </tr>
-        <%
-            Map<Goods,Integer> map1=(Map<Goods,Integer>) request.getSession().getAttribute("ordercar1");
-            if(map1!=null) {
-                int all=0;
-                for (Goods goods :map1.keySet()) {
-                    String name=goods.getName();
-                    int price=goods.getPrice();
-                    int value=map1.get(goods);
-                    int sum=price*value;
-                    all=all+sum;
+    <div class="container">
+        <div class="row">
+            <h3>订单详情 <span class="label label-default">New</span></h3>
+            <form action="historyOrder.jsp" method="post">
+                <table class="table">
+                    <tr>
+                        <td>商品名称</td>
+                        <td align="right">商品数量</td>
+                    </tr>
+                    <%
+                        Map<Goods,Integer> map1=(Map<Goods,Integer>) request.getSession().getAttribute("ordercar1");
+                        if(map1!=null) {
+                            int all=0;
+                            for (Goods goods :map1.keySet()) {
+                                String name=goods.getName();
+                                int price=goods.getPrice();
+                                int value=map1.get(goods);
+                                int sum=price*value;
+                                all=all+sum;
 
-        %>
-          <tr>
-              <td><%=name%></td>
-              <td align="right"><%=value%></td>
-          </tr>
-        <%
-            }
-                pageContext.setAttribute("all", all);
-        %>
-        <tr>
-            <td>合计</td>
-            <td align="right" id="all"><%=all%></td>
-        </tr>
-        <%
+                    %>
+                    <tr>
+                        <td><%=name%></td>
+                        <td align="right"><%=value%></td>
+                    </tr>
+                    <%
+                        }
+                        pageContext.setAttribute("all", all);
+                    %>
+                    <tr>
+                        <td>合计</td>
+                        <td align="right" id="all"><%=all%></td>
+                    </tr>
+                    <%
 
-            }
+                        }
 
-        %>
-    </table>
+                    %>
+                </table>
 
-         <table>
-             <tr>
-                 <td>
-                      <div class="btn-group" role="group" aria-label="...">
-                         <button type="button" class="btn btn-default">堂食</button>
-                         <button type="button" class="btn btn-default">外带</button>
-                      </div>
-                 </td>
-             </tr>
+                <table>
+                    <tr>
+                        <td>
+                            <div class="btn-group" role="group" aria-label="...">
+                                <button type="button" class="btn btn-default">堂食</button>
+                                <button type="button" class="btn btn-default">外带</button>
+                            </div>
+                        </td>
+                    </tr>
 
 
-           <tr>
-              <td align="left"><a class="btn btn-default" href="OrderPurchaseServlet?nickname=${sessionScope.user.id}&&id=0&all=${all} " role="button">稍后支付</a></td>
-              <td align="right"><a class="btn btn-default" href="OrderPurchaseServlet?nickname=${sessionScope.user.id}&&id=1&all=${all} " role="button"  id="btnp" >立即支付</a></td>
-          </tr>
-         </table>
-    </form>
+                    <tr>
+                        <td align="left"><a class="btn btn-default" href="OrderPurchaseServlet?nickname=${sessionScope.user.id}&&id=0&all=${all} " role="button">稍后支付</a></td>
+                        <td align="right"><a class="btn btn-default" href="OrderPurchaseServlet?nickname=${sessionScope.user.id}&&id=1&all=${all} " role="button"  id="btnp" >立即支付</a></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
 </body>
 </html>
