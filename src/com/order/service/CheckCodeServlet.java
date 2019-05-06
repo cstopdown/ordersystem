@@ -15,6 +15,7 @@ import java.util.Random;
 @WebServlet("/checkCodeServlet")
 public class CheckCodeServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
         int width=100;
         int height=50;
         BufferedImage image=new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);

@@ -37,7 +37,7 @@ public class BuyOneServlet extends HttpServlet {
         //更新订单数据
         HistoryOrderDao historyOrderDao = new HistoryOrderDaoImpl();
         String desc="购买了"+goods.getName()+"1个";
-        SimpleDateFormat simpleDateFormat =new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
+        SimpleDateFormat simpleDateFormat =new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String date = simpleDateFormat.format(new Date());
         historyOrderDao.insert(date, goods.getPrice(), 1,desc,user.getId() );
     }
